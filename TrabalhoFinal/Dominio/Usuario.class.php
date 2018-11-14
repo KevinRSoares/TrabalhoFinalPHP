@@ -1,11 +1,10 @@
 <?php
     class Usuario
     {
-        public $Nome;
-        public $Senha;
-        public $Email;
-        public $Nick;
-        public $DtNasc;
-        public $TipUsu;
+        public $codigo;
+        public $nome;
+        public $dataCad;
+        public $tipo;
+        public $senha;
     }
 ?>
