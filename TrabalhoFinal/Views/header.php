@@ -5,7 +5,15 @@
 <!-- Bootstrap core CSS -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 <!-- Custom styles for this template -->
-<link href="Content/dist/css/main.css" rel="stylesheet">
+<?php
+$css = '';
+ if($page == 'Login'){
+        $css  = "cssLogin";
+ }else{
+        $css  = "main";
+ }    
+?>
+<link href="Content/dist/css/<?php echo $css ?>.css" rel="stylesheet">
 <?php         
     session_start();
 ?>

@@ -58,10 +58,11 @@
 		<script src="Content/js/dist/<?php echo $script ?>.script.js"></script>        
 	</head>
 	<body>
-        <div class="body">
         <?php 
             include 'Views/verificaLogin.php';
-            include 'Views/navbar.php';
+            if($page != 'Login'){
+                include 'Views/navbar.php';
+            }
             include 'Views/'.$script.'.php';
         ?>
         </div>

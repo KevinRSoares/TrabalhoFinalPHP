@@ -1,19 +1,14 @@
-<div class="text-center">
-    <form class="form-signin">
-        <img class="mb-4" src="Content/dist/img/trabalho.png" alt="" width="72" height="72">    
-        <h1 class="h3 mb-3 font-weight-normal">SENAI Library</h1>
-        <label for="inputEmail" class="sr-only">Email address</label>
-        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-        <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-        <div class="checkbox mb-3">
-            <label>
-                <input type="checkbox" value="remember-me"> Remember me
-            </label>
-        </div>
-        <button class="btn btn-lg btn-dark btn-block" type="submit">Login</button>
-    </form>
-</div>
+    <div class="text-center">
+        <form class="form-signin">
+            <img class='mb-4' src="Content/dist/img/trabalho.png" alt="" width="100" height="100" >    
+            <h1 class="h3 mb-3 font-weight-normal">SENAI Library</h1>
+            <label for="inputNome" class="sr-only">Nome de Usuário </label>
+            <input type="text" id="inputNome" class="form-control" placeholder="Nome de Usuário" required autofocus>
+            <label for="inputPassword" class="sr-only">Password</label>
+            <input type="password" id="inputPassword" class="form-control" placeholder="Senha" required>
+            <button class="btn btn-lg btn-dark btn-block" type="submit">Login</button>
+        </form>
+    </div>
 <!--<div class="container">
     <div class="card">
         <h1>Login</h1>
