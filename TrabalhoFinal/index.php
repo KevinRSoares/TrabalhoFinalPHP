@@ -22,7 +22,6 @@
             $titulo = "Login";
             $login = " active";
             break;
-
         case 'Admin':
             $script = "admin";
             $titulo = "Admin";
@@ -60,9 +59,9 @@
 	<body>
         <?php 
             include 'Views/verificaLogin.php';
-            if($page != 'Login'){
-                include 'Views/navbar.php';
-            }
+           // if($page != 'Login'){
+               include 'Views/navbar.php';
+          //  }
             include 'Views/'.$script.'.php';
         ?>
         </div>

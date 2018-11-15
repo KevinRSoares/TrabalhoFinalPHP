@@ -9,6 +9,7 @@
 $css = '';
  if($page == 'Login'){
         $css  = "cssLogin";
+        
  }else{
         $css  = "main";
  }    

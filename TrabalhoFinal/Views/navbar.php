@@ -1,69 +1,33 @@
-<header>
-	<!--<nav class="navbar navbar-expand-lg ">
-		<a class="navbar-brand" href="index.php
-		<?php 
-			if($_SESSION['tipUsu'] == "A")
-			{
-				echo "?page=Admin";
-			}
-			else{ 
-				echo "?page=Jogo";
-			}
-		?>		
-		"><img src="Content/img/Logo.png" height="35px"></a>
-		<p class="d-none" id="CodUsu"><?php echo $_SESSION['CodUsu']?></p>
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand" href="#">logo</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+          </ul>
+          <form class="form-inline mt-2 mt-md-0">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+            <div class="dropdown">
+              <a class="btn btn-light,
+               dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Tipo de Usuário </a>
 
-		<div class="collapse navbar-collapse" id="navbarSupportedContent">
-			<ul class="navbar-nav mr-auto">
-			<?php 
-				if((!isset ($_SESSION['email']) == true))
-				{
-			?>	
-				<li class="nav-item">
-					<a class="nav-link <?php echo $login ?>" href="index.php?page=Login">Login</a>
-				</li>
-			<?php 
-			}
-			else
-			{ ?>
-				<?php 
-					if($_SESSION['tipUsu'] == "A")
-					{
-				?>			
-				<li class="nav-item">
-					<a class="nav-link <?php echo $admin ?>" href="index.php?page=Admin">Admin</a>
-				</li>			
-				<li class="nav-item">
-					<a class="nav-link <?php echo $cadastro ?>" href="index.php?page=Cadastrar">Cadastrar</a>
-				</li>	
-				<?php
-					}else{
-				?>		
-				<li class="nav-item">
-					<a class="nav-link <?php echo $rankingn ?>" href="index.php?page=Ranking">Ranking</a>
-				</li>						
-				<li class="nav-item">
-					<a class="nav-link <?php echo $perfil ?>" href="index.php?page=Perfil">Perfil</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link <?php echo $sobre ?>" href="index.php?page=Sobre">Sobre</a>
-				</li>	
-				<li class="nav-item">
-					<a class="nav-link <?php echo $jogo ?>" href="index.php?page=Jogo">Jogo</a>
-				</li>		
-				<?php 
-				}
-				?>
-				<li class="nav-item">
-					<a class="nav-link" href="Views/sair.php">Sair</a>
-				</li>
-			<?php 
-			}
-			?>
-			</ul>
-		</div>
-	</nav>-->
-</header>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item" href="#">Professor</a>
+                <a class="dropdown-item" href="#">Aluno</a>
+                <a class="dropdown-item" href="#">omunidade</a>
+              </div>
+            </div>
+            <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+          </form>
+        </div>
+      </nav>
