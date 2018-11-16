@@ -22,6 +22,7 @@
             $titulo = "Login";
             $login = " active";
             break;
+
         case 'Admin':
             $script = "admin";
             $titulo = "Admin";
@@ -54,14 +55,14 @@
 	<head>
 		<?php include 'Views/header.php' ?>
 		<title>Nome do Sistema - <?php echo $titulo ?></title>
-		<script src="Content/js/dist/<?php echo $script ?>.script.js"></script>        
+		<script src="Content/dist/js/<?php echo $script ?>.script.js"></script>        
 	</head>
 	<body>
         <?php 
             include 'Views/verificaLogin.php';
-           // if($page != 'Login'){
-               include 'Views/navbar.php';
-          //  }
+            if($page != 'Login'){
+                include 'Views/navbar.php';
+            }
             include 'Views/'.$script.'.php';
         ?>
         </div>

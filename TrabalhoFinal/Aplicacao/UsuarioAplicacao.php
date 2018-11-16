@@ -14,7 +14,7 @@
             //d   corresponding variable has type double
             //s   corresponding variable has type string
             //b   corresponding variable is a blob and will be sent in packets
-            $stmt->bind_param('ssssss', $Usuario->Nome, $Usuario->Email, $Usuario->DtNasc, $Usuario->Nick, $Usuario->Senha, $Usuario->TipUsu);
+            $stmt->bind_param('ssssss', $Usuario->Nome, $Usuario->nome, $Usuario->DtNasc, $Usuario->Nick, $Usuario->Senha, $Usuario->TipUsu);
             //NoUsu EmUsu DtNaUsu NiUsu SeUsu TiUsu 
             // 's' especifica o tipo => 'string'
             $stmt->execute();
@@ -33,7 +33,7 @@
                             $form_data['posted'] = "Usuario Cadastrado com sucesso!";
                         }else{
                             $form_data['success'] = false;
-                            $form_data['erros']  = "Email ou NickName já cadastrados!"; 
+                            $form_data['erros']  = "nome ou NickName já cadastrados!"; 
                         }                        
                     }    
                 }            
@@ -45,15 +45,15 @@
             die();
         }
 
-        public function VerificaLogin($email, $senha)
+        public function VerificaLogin($nome, $senha)
         {
             $connection = new Connection();
             $conn = $connection->getConn();
 
-            $sql = "SELECT * FROM usuario Where EmaUsu = ? and SenUsu = md5(?)";
+            $sql = "SELECT * FROM usuario Where nomusu = ? and senusu = md5(?)";
             //Select CodUsu,EmaUsu ,NomUsu , SenUsu ,TipUsu from usuario Where EmaUsu = ? and SenUsu = md5(?)
             $stmt = $conn->prepare($sql);
-            $stmt->bind_param('ss', $email, $senha); // 's' especifica o tipo => 'string'
+            $stmt->bind_param('ss', $nome, $senha); // 's' especifica o tipo => 'string'
 
             $stmt->execute();
             if ($stmt->error) {
@@ -69,20 +69,19 @@
                         session_start([
                             'cookie_lifetime' => 86400,
                         ]);
-                        $_SESSION['CodUsu'] = $row["CodUsu"];
-                        $_SESSION['email'] = $row["EmaUsu"];
-                        $_SESSION['nome'] = $row["NomUsu"];
-                        $_SESSION['tipUsu'] = $row["TipUsu"];
+                        $_SESSION['CodUsu'] = $row["codusu"];
+                        $_SESSION['nome'] = $row["nomusu"];
+                        $_SESSION['tipUsu'] = $row["tipusu"];
                         
                         $form_data['success'] = true;
                         $form_data['tipUsu'] = $row["TipUsu"];
-
+                        $form_data['posted'] = "Login efetuado com sucesso!";
                     }
-                    $form_data['posted'] = "Login efetuado com sucesso!";
+                    
                 } 
                 else
                 {
-                    $erros['email'] = 'usuário ou senha inválidos';
+                    $erros['nome'] = 'usuário ou senha inválidos';
                     $form_data['success'] = false;
                     $form_data['erros']  = $erros;
                 }

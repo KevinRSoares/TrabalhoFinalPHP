@@ -5,7 +5,7 @@
     $erros = array(); //Para armazenar os erros
     $form_data = array(); //Para enviar os dados de volta à página
 
-    $erros['email'] = "";
+    $erros['nome'] = "";
     $erros['senha'] = "";
     $erros['campos'] = "";
     $tiUsu = "";
@@ -21,8 +21,8 @@
         switch($operacao)
         {
             case "VerificarLogin":
-                if (empty($_POST['inputEmail'])) {
-                    $erros['email'] = 'Você deve informar um email';
+                if (empty($_POST['inputNome'])) {
+                    $erros['nome'] = 'Você deve informar um email';
                 }
             
                 if (empty($_POST['inputSenha'])) {
@@ -30,10 +30,10 @@
                 }
 
                 $Senha = $_POST['inputSenha'];
-                $Email = $_POST['inputEmail'];
+                $Nome = $_POST['inputNome'];
 
 
-                $form_data = $aplicacao->VerificaLogin($Email, $Senha);
+                $form_data = $aplicacao->VerificaLogin($Nome, $Senha);
                 break;
             case "AdicionarUsuario":
                 if (empty($_POST['inputEmail']) || empty($_POST['inputSenha']) || empty($_POST['inputNome']) || empty($_POST['inputApelido']) || empty($_POST['inputDtNascimento'])){
