@@ -47,6 +47,10 @@
             $script = "esqueci";
             $titulo = "Esqueci";
             break;    
+        case 'Volumes':
+            $script = "volumes";
+            $titulo = "Volumes";
+            break;            
         }
 ?>
 

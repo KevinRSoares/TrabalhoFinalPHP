@@ -74,7 +74,7 @@
                         $_SESSION['tipUsu'] = $row["tipusu"];
                         
                         $form_data['success'] = true;
-                        $form_data['tipUsu'] = $row["TipUsu"];
+                        $form_data['tipUsu'] = $row["tipusu"];
                         $form_data['posted'] = "Login efetuado com sucesso!";
                     }
                     

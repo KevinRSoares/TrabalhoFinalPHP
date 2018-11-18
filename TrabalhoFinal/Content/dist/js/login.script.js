@@ -28,7 +28,7 @@ $( document ).ready(function() {
 
 		//Vamos serializar o formulário
 		var serializedData = $form.serialize();
-		serializedData+="&operacao=VerificarLogin"
+		serializedData+="&operacao=VerificarLogin";
 
 		//Vamos desabilitar os inputs durante a requisição para não deicar mandar várias seguidas
 		// OBS: N[os desabilitamos os campos depois de serializar os dados
@@ -45,26 +45,19 @@ $( document ).ready(function() {
 		request.done(function (response, textStatus, jqXHR){
 			var response = $.parseJSON(response);
 			if (!response.success) { //Se deu alguma mensagem de erro
-				if (response.erros.email) {
-					$('#divMensagem').append('<div class="alert alert-danger" role="alert">' + response.erros.email + '</div>')
-					.fadeIn(1000).html();
+				if (response.erros.nome) {
+					$('#divMensagem').append('<div class="alert alert-danger" role="alert">' + response.erros.nome + '</div>');
 				}
 			}
 			else {
-					$('#divMensagem').append('<div class="alert alert-success" role="alert">' + response.posted + '</div>')
-					.fadeIn(1000).html();
-					if(response.tipUsu == "A"){
-						redirect("index.php?page=Admin");	
-					}else{
-						redirect("index.php?page=Jogo");
-					}
+				$('#divMensagem').append('<div class="alert alert-success" role="alert">' + response.posted + '</div>');
+				redirect("index.php?page=Volumes");
 			}
 		});
 
 		// Callback para ser chamado em caso de falha
 		request.fail(function (jqXHR, textStatus, errorThrown){
-			$('#divMensagem').append('<div class="alert alert-danger" role="alert">Erro ao enviar os dados</div>')
-					.fadeIn(1000).html();
+			$('#divMensagem').append('<div class="alert alert-danger" role="alert">Erro ao enviar os dados</div>');
 		});
 
 		// Callback que será chamado sempre depois da requisição (mesmo que ocorra falaha ou sucesso)
