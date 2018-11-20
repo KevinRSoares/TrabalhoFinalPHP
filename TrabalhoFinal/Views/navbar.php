@@ -30,7 +30,9 @@
           <a class="dropdown-item" href="#">omunidade</a>
         </div>
       </div>
-      <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+      <button class="btn btn-outline-light my-2 my-sm-0" type="submit">
+        <img src="Content/dist/img/icon/baseline_search_white_18dp.png" width="18" height="18" alt="">
+      </button>
     </form>
   </div>
 </nav>

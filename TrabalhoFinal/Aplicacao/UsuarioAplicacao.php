@@ -69,9 +69,9 @@
                         session_start([
                             'cookie_lifetime' => 86400,
                         ]);
-                        $_SESSION['CodUsu'] = $row["codusu"];
-                        $_SESSION['nome'] = $row["nomusu"];
-                        $_SESSION['tipUsu'] = $row["tipusu"];
+                        $_SESSION['codusu'] = $row["codusu"];
+                        $_SESSION['nomusu'] = $row["nomusu"];
+                        $_SESSION['tipusu'] = $row["tipusu"];
                         
                         $form_data['success'] = true;
                         $form_data['tipUsu'] = $row["tipusu"];

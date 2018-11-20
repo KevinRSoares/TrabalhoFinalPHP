@@ -17,7 +17,7 @@
             $cadastro = " active";
             break;
         case 'Login':
-        default:
+            default:
             $script = "login";
             $titulo = "Login";
             $login = " active";

@@ -1,7 +1,9 @@
 <?php 
-	if((!isset ($_SESSION['email']) == true) && $page != "Login" && $page != "Cadastrar" && $page != "Esqueci")
+	if((!isset ($_SESSION['nomusu']) == true) && $page != "Login" && $page != "Cadastrar" && $page != "Esqueci")
 	{
-		unset($_SESSION['email']);
+		unset($_SESSION['nomusu']);
 		header('location:index.php?page=Login');
+	}else if((isset ($_SESSION['nomusu']) == true) && $page == "Login"){
+		header('location:index.php?page=Volumes');
 	}
 ?>
