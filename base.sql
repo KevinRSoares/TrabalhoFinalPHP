@@ -58,7 +58,7 @@ DROP TABLE IF EXISTS `usuario`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `usuario` (
   `codusu` int(11) NOT NULL,
-  `nomcod` varchar(100) NOT NULL,
+  `nomusu` varchar(100) NOT NULL,
   `datcadusu` date NOT NULL,
   `tipusu` char(1) NOT NULL,
   `senusu` varchar(32) NOT NULL,
@@ -86,12 +86,13 @@ DROP TABLE IF EXISTS `volume`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `volume` (
   `codvol` int(11) NOT NULL,
+  `nomvol` varchar(50) NOT NULL,
   `desvol` varchar(200) NOT NULL,
   `tipvol` int(11) NOT NULL,
   `qtdvol` int(11) NOT NULL,
   `datcadvol` date NOT NULL,
   PRIMARY KEY (`codvol`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='		';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -121,11 +122,17 @@ UNLOCK TABLES;
 /*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `atualiza_status_retirada`(
+
 IN coret Int,/*Código da Retirada*/
+
 IN stret CHAR(1)/*Código da Retirada*/
+
 )
 BEGIN
+
 	update retirada set stsret = stret where codret = coret;
+
+
 
 END ;;
 DELIMITER ;
@@ -144,16 +151,26 @@ DELIMITER ;
 /*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `cadastra_retirada`(
+
 IN covol Int,/*Código do Volume*/
+
 IN cousu Int,/*Código do Usuário*/
+
 IN daret Date, /*Data da Retirada*/
+
 IN stret Char(1),/*Situação da Retirada*/
+
 IN qtret Int, /*Quantidade Retirada*/
+
 IN datderet Int /*Data Devolução Retirada*/
+
 )
 BEGIN
+
 	Insert Into retirada(codvol,codusu,datret,stsret,qtdret,datdevret)
+
 		Values(covol,cousu,daret,stret,qtret,datderet);
+
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -171,16 +188,24 @@ DELIMITER ;
 /*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `cadastra_usuario`(
+
 IN nousu Varchar(100),/*Código do Usuario*/
-IN caddatusu date,/*Data de Cadastro de usuario*/
+
 IN tiusu Char(1), /*Tipo de usuario*/
+
 IN seusu varchar(32)
+
 )
 BEGIN
+
 	
-	Declare caddatusu dateTime default now();/*Data de Cadastro de Usuario*/ 
+
+	Declare caddatusu date default now();/*Data de Cadastro de Usuario*/ 
+
 	Insert Into usuario(nomcod,datcadusu,tipusu,senusu)
+
 		Values(nousu,caddatusu,tiusu,md5(seusu));
+
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -198,14 +223,22 @@ DELIMITER ;
 /*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `cadastra_volume`(
+
+IN nmvol Varchar(50),/*Nome Volume*/
+
 IN devol Varchar(200),/*Descrição do Volume*/
+
 IN tivol Int,/*Tipo do Volume*/
-IN qtvol Int,/*Quantidade do Volume*/
-IN datcavol Date/*Data do Cadastro do Volume*/
+
+IN qtvol Int/*Quantidade do Volume*/
+
 )
-BEGIN
-	Insert Into volume(desvol,tipvol,qtdvol,datcadvol)
-		Values(devol,tivol,qtvol,datcavol);
+BEGIN
+	Declare datcavol date default now();/*Data de Cadastro de Usuario*/ 
+	Insert Into volume(nomvol,desvol,tipvol,qtdvol,datcadvol)
+
+		Values(nmvol,devol,tivol,qtvol,datcavol);
+
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -222,4 +255,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-11-14 23:45:03
+-- Dump completed on 2018-11-21 21:26:32

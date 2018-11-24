@@ -22,7 +22,6 @@
             $titulo = "Login";
             $login = " active";
             break;
-
         case 'Admin':
             $script = "admin";
             $titulo = "Admin";

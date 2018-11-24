@@ -9,12 +9,12 @@
             $connection = new Connection();
             $conn = $connection->getConn();
             
-            $stmt = $conn->prepare("call Cadastra_Usuario(?, ?, ?, ?, ?, ?)");
+            $stmt = $conn->prepare("call cadastra_usuario(?, ?, ?)");
             //i   corresponding variable has type integer
             //d   corresponding variable has type double
             //s   corresponding variable has type string
             //b   corresponding variable is a blob and will be sent in packets
-            $stmt->bind_param('ssssss', $Usuario->Nome, $Usuario->nome, $Usuario->DtNasc, $Usuario->Nick, $Usuario->Senha, $Usuario->TipUsu);
+            $stmt->bind_param('sss', $Usuario->nome, $Usuario->tipo, $Usuario->senha);
             //NoUsu EmUsu DtNaUsu NiUsu SeUsu TiUsu 
             // 's' especifica o tipo => 'string'
             $stmt->execute();
@@ -25,18 +25,17 @@
                 $form_data['erros']  = $erros; 
                 
             } else {
-                $result = $stmt->get_result();
+                $form_data['success'] = true;
+                $form_data['posted'] = "Usuario Cadastrado com sucesso!";
+            /*    $result = $stmt->get_result();
                 if ($result->num_rows > 0) {
                     if($row = $result->fetch_assoc()) {
                         if($row["Retorno"] == 1){
                             $form_data['success'] = true;
                             $form_data['posted'] = "Usuario Cadastrado com sucesso!";
-                        }else{
-                            $form_data['success'] = false;
-                            $form_data['erros']  = "nome ou NickName já cadastrados!"; 
-                        }                        
+                        }                     
                     }    
-                }            
+                }   */         
             }
 
             $conn->close();	
