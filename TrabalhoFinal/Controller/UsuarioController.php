@@ -45,7 +45,7 @@
                 if (!empty($erros['campos'])) { //Se houve erros
                     $form_data['success'] = false;
                     $form_data['erros'] = $erros;
-                }else{
+                }else{                               
                     $jog = new Usuario();
                     $jog->nome = $_POST['inputNome'];
                     $jog->senha = $_POST['inputSenha'];

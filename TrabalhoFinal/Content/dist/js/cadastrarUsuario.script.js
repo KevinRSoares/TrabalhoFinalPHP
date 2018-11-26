@@ -44,24 +44,19 @@ $( document ).ready(function() {
 			console.log(response);
 			if (!response.success) { //Se deu alguma mensagem de erro				
 				if (response.erros.campos) {
-					$('#divMensagem').append('<div class="alert alert-danger" role="alert">' + response.erros.campos + '</div>')
-					.fadeIn(5000).html();
+					$('#divMensagem').append('<div class="alert alert-danger" role="alert">' + response.erros.campos + '</div>');
 				}else{
-					$('#divMensagem').append('<div class="alert alert-danger" role="alert">' + response.erros + '</div>')
-					.fadeIn(5000).html();
+					$('#divMensagem').append('<div class="alert alert-danger" role="alert">' + response.erros + '</div>');
 				}		
 			}
 			else {
-					$('#divMensagem').append('<div class="alert alert-success" role="alert">' + response.posted + '</div>')
-					.fadeIn(5000).html();
-					redirect("index.php?page=Jogo");
+					$('#divMensagem').append('<div class="alert alert-success" role="alert">' + response.posted + '</div>');
 			}
 		});
 
 		// Callback para ser chamado em caso de falha
 		request.fail(function (jqXHR, textStatus, errorThrown){
-			$('#divMensagem').append('<div class="alert alert-danger" role="alert">Erro ao enviar os dados</div>')
-					.fadeIn(5000).html();
+			$('#divMensagem').append('<div class="alert alert-danger" role="alert">Erro ao enviar os dados</div>');
 		});
 
 		// Callback que será chamado sempre depois da requisição (mesmo que ocorra falaha ou sucesso)

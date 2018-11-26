@@ -11,8 +11,8 @@
           <a class="btn btn-dark dropdown
             dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Cadastros</a>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item" href="#">Usuário</a>
-            <a class="dropdown-item" href="#">Volume</a>
+            <a class="dropdown-item" data-toggle="modal" data-target="#CadUsuario">Usuário</a>
+            <a class="dropdown-item" data-toggle="modal" data-target="#CadVolume">Volume</a>
           </div>
         </div>
         <li class="nav-item">

@@ -10,12 +10,7 @@
             $script = "jogo";
             $titulo = "FastMind";
             $jogo = " active";
-            break;
-        case 'Cadastrar':
-            $script = "cadastrar";
-            $titulo = "Cadastro de jogador";
-            $cadastro = " active";
-            break;
+            break;     
         case 'Login':
             default:
             $script = "login";
