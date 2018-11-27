@@ -11,7 +11,7 @@
           <a class="btn btn-dark dropdown
             dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Cadastros</a>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item" data-toggle="modal" data-target="#CadUsuario">Usuário</a>
+          <a class="dropdown-item" data-toggle="modal" data-target="#CadUsuario">Usuário</a>
             <a class="dropdown-item" data-toggle="modal" data-target="#CadVolume">Volume</a>
           </div>
         </div>
@@ -25,7 +25,10 @@
 					<a class="nav-link" href="Views/sair.php">Sair</a>
 				</li>        
       </ul>
-      <form class="form-inline mt-2 mt-md-0">
+      <form class="form-inline mt-3 mt-md-0">
+        <a class="cest btn btn-dark">
+          <img class='cest' src="Content/dist/img/icon/baseline_shopping.png" alt="Cesta de Compras" width="30px">
+        </a>
         <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
         <div class="dropdown">
           <a class="btn btn-dark dropdown

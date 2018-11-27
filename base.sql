@@ -1,8 +1,10 @@
+CREATE DATABASE  IF NOT EXISTS `trabalhofinal` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `trabalhofinal`;
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: trabalhofinal
 -- ------------------------------------------------------
--- Server version	5.5.5-10.1.31-MariaDB
+-- Server version	5.5.5-10.1.28-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -23,7 +25,7 @@ DROP TABLE IF EXISTS `retirada`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `retirada` (
-  `codret` int(11) NOT NULL,
+  `codret` int(11) NOT NULL AUTO_INCREMENT,
   `codvol` int(11) NOT NULL,
   `codusu` int(11) NOT NULL,
   `datret` date NOT NULL,
@@ -55,7 +57,7 @@ DROP TABLE IF EXISTS `usuario`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `usuario` (
-  `codusu` int(11) NOT NULL,
+  `codusu` int(11) NOT NULL AUTO_INCREMENT,
   `nomusu` varchar(100) NOT NULL,
   `datcadusu` date NOT NULL,
   `tipusu` char(1) NOT NULL,
@@ -84,10 +86,10 @@ DROP TABLE IF EXISTS `volume`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `volume` (
-  `codvol` int(11) NOT NULL,
+  `codvol` int(11) NOT NULL AUTO_INCREMENT,
   `nomvol` varchar(50) NOT NULL,
   `desvol` varchar(200) NOT NULL,
-  `tipvol` int(11) NOT NULL,
+  `tipvol` char(1) NOT NULL,
   `qtdvol` int(11) NOT NULL,
   `datcadvol` date NOT NULL,
   PRIMARY KEY (`codvol`)
@@ -101,6 +103,31 @@ CREATE TABLE `volume` (
 LOCK TABLES `volume` WRITE;
 /*!40000 ALTER TABLE `volume` DISABLE KEYS */;
 /*!40000 ALTER TABLE `volume` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `volume_retirada`
+--
+
+DROP TABLE IF EXISTS `volume_retirada`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `volume_retirada` (
+  `volume_codvol` int(11) NOT NULL,
+  `retirada_codret` int(11) NOT NULL,
+  `retirada_codusu` int(11) NOT NULL,
+  `qtdVolRet` int(11) NOT NULL,
+  PRIMARY KEY (`volume_codvol`,`retirada_codret`,`retirada_codusu`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `volume_retirada`
+--
+
+LOCK TABLES `volume_retirada` WRITE;
+/*!40000 ALTER TABLE `volume_retirada` DISABLE KEYS */;
+/*!40000 ALTER TABLE `volume_retirada` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -124,11 +151,47 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `atualiza_status_retirada`(
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 IN coret Int,/*Código da Retirada*/
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 IN stret CHAR(1)/*Código da Retirada*/
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -137,7 +200,43 @@ BEGIN
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 	update retirada set stsret = stret where codret = coret;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -165,7 +264,31 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `cadastra_retirada`(
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 IN covol Int,/*Código do Volume*/
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -173,7 +296,31 @@ IN cousu Int,/*Código do Usuário*/
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 IN daret Date, /*Data da Retirada*/
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -181,7 +328,11 @@ IN stret Char(1),/*Situação da Retirada*/
 
 
 
-IN qtret Int, /*Quantidade Retirada*/
+
+
+
+
+
 
 
 
@@ -189,16 +340,36 @@ IN datderet Int /*Data Devolução Retirada*/
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 )
 BEGIN
 
-
-
-	Insert Into retirada(codvol,codusu,datret,stsret,qtdret,datdevret)
+	Declare retCo Int(11);
 
 
 
-		Values(covol,cousu,daret,stret,qtret,datderet);
+	Insert Into retirada(codvol,codusu,datret,stsret,datdevret)
+
+
+
+		Values(covol,cousu,daret,stret,datderet);
+
+	Select Max(RetCod) as 'RetCod' from retirada Where cousu = codusu into retCo;
+
+
+
+	Select retCo;
 
 
 
@@ -222,7 +393,31 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `cadastra_usuario`(
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 IN nousu Varchar(100),/*Código do Usuario*/
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -230,22 +425,119 @@ IN tiusu Char(1), /*Tipo de usuario*/
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 IN seusu varchar(32)
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 )
 BEGIN
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	Declare caddatusu date default now();/*Data de Cadastro de Usuario*/ 
-	Declare nome_usuario_duplicado condition for sqlstate '23000';
+  Declare nome_usuario_duplicado condition for sqlstate '23000';
 	Declare exit handler for nome_usuario_duplicado
 	begin
 		select '0'  as 'Retorno';
     End;  
-		Insert Into usuario(nomcod,datcadusu,tipusu,senusu)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	Insert Into usuario(nomcod,datcadusu,tipusu,senusu)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 		Values(nousu,caddatusu,tiusu,md5(seusu));
-	select '1'  as 'Retorno';
+  	select '1'  as 'Retorno';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -265,14 +557,56 @@ DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `cadastra_volume`(
 
 
+
+
+
+
+
+
+
+
+
 IN nmvol Varchar(50),/*Nome Volume*/
+
+
+
+
+
+
+
+
+
 
 
 IN devol Varchar(200),/*Descrição do Volume*/
 
 
 
-IN tivol Int,/*Tipo do Volume*/
+
+
+
+
+
+
+
+
+
+
+
+
+IN tivol char(1),/*Tipo do Volume*/
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -280,15 +614,60 @@ IN qtvol Int/*Quantidade do Volume*/
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 )
 BEGIN
+
+
+
 	Declare datcavol date default now();/*Data de Cadastro de Usuario*/ 
+
+
+
+
+
+
 
 	Insert Into volume(nomvol,desvol,tipvol,qtdvol,datcadvol)
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 		Values(nmvol,devol,tivol,qtvol,datcavol);
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -308,4 +687,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-11-25 23:02:53
+-- Dump completed on 2018-11-26 23:34:16
