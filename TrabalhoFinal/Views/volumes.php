@@ -66,7 +66,7 @@
         </div>
         <div class="modal-body">
             <!--Cad Usu-->
-        <form>
+        <form id="formCadastroUsuario">
             <div class="container cadastroUsu">
                 
                     <div class="row">
@@ -113,7 +113,7 @@
             <span aria-hidden="true">&times;</span>
             </button>
         </div>
-        <form>
+        <form id="formCadastroVolume">
             <div class="modal-body">      
                 <div class="container cadastroUsu">
                         <div class="row">
