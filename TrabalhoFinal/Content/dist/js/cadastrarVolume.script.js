@@ -25,7 +25,7 @@ $( document ).ready(function() {
 		//Vamos selecionar e armazenar todos os cmapos do formulário para operações com eles
 		var $inputs = $form.find("input, select, button, textarea");
 
-		var file_data = $('#inputFile').prop('files')[0];   
+ 
 
 		//Vamos serializar o formulário
 		var serializedData = $form.serialize();
@@ -40,6 +40,23 @@ $( document ).ready(function() {
 			url: "Controller/VolumeController.php",
 			type: "post",
 			data: serializedData
+		});
+		
+		var file_data = $('#inputFile').prop('files')[0];   
+		var form_data = new FormData();    
+		var data = [];
+		form_data.append('file', file_data);
+		data['arquivo'] = form_data;          
+		data['operacao'] = 'SalvarImagem';
+
+		request = $.ajax({
+			url: "Controller/VolumeController.php",
+			dataType: 'text',  
+			cache: false,
+			contentType: false,
+			processData: false,
+			type: 'post',
+			data: data                      
 		});
 		
 		// Callback para ser chamado quando ocorre o sucesso
@@ -74,7 +91,7 @@ $( document ).ready(function() {
 });
 
 
-
+/*
 $("#formArquivo").on("submit", function(event){
         
 	event.preventDefault();
@@ -97,4 +114,4 @@ $("#formArquivo").on("submit", function(event){
 			$("#inputFile").val("");
 		}
 		});
-	})
+	})*/

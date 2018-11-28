@@ -130,13 +130,14 @@
                 </div> 
                 
               </div>
-            </div>
-            
-            <div class="custom-file" id="customFile">
-                    <input type="file" class="custom-file-input" id="inputFile" name="inputFile"aria-describedby="fileHelp">
-                    <label class="custom-file-label" id="labelFile" for="exampleInputFile">
-                        Nenhum arquivo selecionado
-                    </label>
+              
+              
+              <div class="custom-file" id="customFile">
+                <input type="file" class="custom-file-input" id="inputFile" name="inputFile"aria-describedby="fileHelp">
+                <label class="custom-file-label" id="labelFile" for="exampleInputFile">
+                  Nenhum arquivo selecionado
+                </label>
+              </div>
             </div>
           </div>
           <div class="modal-footer">
@@ -149,10 +150,10 @@
     </div>
   </div>
 
-<script type="text/javascript">
+  <script type="text/javascript">
     $('.custom-file-input').on('change',function(){
-        var fileName = $(this).val();
+      var fileName = $(this).val();
 
-        $('#labelFile').html(fileName);
+      $('#labelFile').html(fileName);
     })
-</script>
+  </script>

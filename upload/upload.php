@@ -5,7 +5,7 @@
     }
 
     else {
-        $target = "../imagens/";
+        $target = "../Content/dist/img/imgVolumes/";
 		$target = $target . basename( $_FILES['file']['name']);
 
 		$Filename=basename( $_FILES['file']['name']);
