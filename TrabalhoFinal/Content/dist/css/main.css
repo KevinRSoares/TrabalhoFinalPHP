@@ -93,3 +93,15 @@ box-shadow: -2px 2px 28px 8px rgba(138,136,138,1);
 .container{
   padding-left: 0px; 
 }
+.btnRet{
+  border-radius: 50% !important;
+  color : white !important;
+  font-size: 15px !important;
+}
+.cardRet{
+  box-shadow: none;
+}
+.modal-body{
+  padding: 0px 1rem 1rem 1rem !important;
+
+}

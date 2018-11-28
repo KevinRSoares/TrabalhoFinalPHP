@@ -1,53 +1,52 @@
-    <header>
-      <!-- Fixed navbar -->
-      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+<header>
+  <!-- Fixed navbar -->
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
 
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-          <ul class="navbar-nav mr-auto">
-            <div class="dropdown">
-              <a class="btn btn-dark dropdown
-              dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Cadastros</a>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <a class="dropdown-item" data-toggle="modal" data-target="#CadUsuario">Usuário</a>
-                <a class="dropdown-item" data-toggle="modal" data-target="#CadVolume">Volume</a>
-              </div>
-            </div>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Retiradas <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Usuário <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-             <a class="nav-link" href="Views/sair.php">Sair</a>
-           </li>        
-         </ul>
-         <form class="form-inline mt-3 mt-md-0">
-          <a class="cest btn btn-dark">
-            <img class='cest' src="Content/dist/img/icon/baseline_shopping.png" alt="Cesta de Compras" width="30px">
-          </a>
-          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-          <div class="dropdown">
-            <a class="btn btn-dark dropdown
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav mr-auto">
+        <div class="dropdown">
+          <a class="btn btn-dark dropdown
+            dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Cadastros</a>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+          <a class="dropdown-item" data-toggle="modal" data-target="#CadUsuario">Usuário</a>
+            <a class="dropdown-item" data-toggle="modal" data-target="#CadVolume">Volume</a>
+          </div>
+        </div>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Retiradas <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Usuário <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+					<a class="nav-link" href="Views/sair.php">Sair</a>
+				</li>        
+      </ul>
+      <form class="form-inline mt-3 mt-md-0">
+        <a class="cest btn btn-dark" data-toggle="modal" data-target="#ModaRetiradas">
+        <img class='cest' src="Content/dist/img/icon/baseline_shopping.png" alt="Cesta de Compras" width="30px">
+        </a>
+        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+        <div class="dropdown">
+          <a class="btn btn-dark dropdown
             dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Tipo de Usuário </a>
 
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-              <a class="dropdown-item" href="#">Professor</a>
-              <a class="dropdown-item" href="#">Aluno</a>
-              <a class="dropdown-item" href="#">Comunidade</a>
-            </div>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <a class="dropdown-item" href="#">Professor</a>
+            <a class="dropdown-item" href="#">Aluno</a>
+            <a class="dropdown-item" href="#">Comunidade</a>
           </div>
-          <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Pocurar</button>
-        </form>
-      </div>
-    </nav>
-  </header>
-
-  <!--Modal Usuario-->
-  <div class="modal fade" id="CadUsuario" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        </div>
+        <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Pocurar</button>
+      </form>
+    </div>
+  </nav>
+</header>
+ <!--Modal Usuario-->
+ <div class="modal fade" id="CadUsuario" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header card-header">
@@ -150,10 +149,61 @@
     </div>
   </div>
 
-  <script type="text/javascript">
+
+
+<div class="modal fade" id="ModaRetiradas" tabindex="-1" role="dialog ">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="ModaRetiradas">Retiradas</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+          <div class="card cardRet" style="width: 28.5rem;">
+            <ul class="list-group list-group-flush">
+              
+              <div class=" container">
+                <li class="list-group-item">
+                  Livro Um xcvdgsdgdfgbdg
+                  <input class="btn btnRet  btn-dark" type="button" id="plus" value='-' onclick="process(-1,1)" />
+                  <input id="q1" name="quant" class="text" size="1" type="text" value="1" maxlength="5" />
+                  <input class="btn btnRet btn-dark" type="button" min="1" id="minus" value='+' onclick="process(1,1)">
+
+                </li>  
+              </div>
+              
+            </ul>
+          </div>
+           
+        </div>  
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary">Retirar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
     $('.custom-file-input').on('change',function(){
       var fileName = $(this).val();
 
       $('#labelFile').html(fileName);
     })
+  function process(quant,id){
+    var value = parseInt(document.getElementById("q"+id+"").value);
+    value+=quant;
+    if(value < 1){
+      document.getElementById("q1").value = 1;
+    }else{
+    document.getElementById("q1").value = value;
+    }
+  }
+</script>
+<script type="text/javascript">
+
   </script>
