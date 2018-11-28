@@ -36,10 +36,10 @@
                 $form_data = $aplicacao->VerificaLogin($Nome, $Senha);
                 break;
             case "AdicionarUsuario":
-                if (empty($_POST['inputNome']) || empty($_POST['inputSenha'])){
+                if (empty($_POST['InputNomeUsu']) || empty($_POST['InputPasswordUsu'])){
                     $erros['campos'] = 'Preencha todos os Campos!!!';
                 }
-                if($_POST['inputTipUsu'] == 'ST'){
+                if($_POST['InputTipoUsu'] == 'ST'){
                     $erros['campos'] = 'Selecione um tipo de usuário!!!';
                 }               
                 if (!empty($erros['campos'])) { //Se houve erros
@@ -47,9 +47,9 @@
                     $form_data['erros'] = $erros;
                 }else{                               
                     $jog = new Usuario();
-                    $jog->nome = $_POST['inputNome'];
-                    $jog->senha = $_POST['inputSenha'];
-                    $jog->tipo = $_POST['inputTipUsu'];
+                    $jog->nome = $_POST['InputNomeUsu'];
+                    $jog->senha = $_POST['InputPasswordUsu'];
+                    $jog->tipo = $_POST['InputTipoUsu'];
                     $form_data = $aplicacao->AdicionarUsuario($jog);
                 }
                 break;

@@ -1,10 +1,13 @@
 $( document ).ready(function() {
 	// Variável para guardar o request
 	var request;
-
+	$('.loader').hide();//AQUI
 	// Bind da função de submit do nosso formulário
-	$("#formCadastroVolume").submit(function(event){
 
+	
+	$("#formCadastroVolume").submit(function(event){
+		$('.esconder').hide();//AQUI
+		$('.loader').show();//AQUI
 		//Não deixa que o POST default seja acionado
 		event.preventDefault();
 
@@ -21,6 +24,8 @@ $( document ).ready(function() {
 
 		//Vamos selecionar e armazenar todos os cmapos do formulário para operações com eles
 		var $inputs = $form.find("input, select, button, textarea");
+
+		var file_data = $('#inputFile').prop('files')[0];   
 
 		//Vamos serializar o formulário
 		var serializedData = $form.serialize();
@@ -52,8 +57,9 @@ $( document ).ready(function() {
 			else {
 					$('#divMensagem').append('<div class="alert alert-success" role="alert">' + response.posted + '</div>');
 			}
+			$('.esconder').show();
+			$('.loader').hide();//AQUI
 		});
-
 		// Callback para ser chamado em caso de falha
 		request.fail(function (jqXHR, textStatus, errorThrown){
 			$('#divMensagem').append('<div class="alert alert-danger" role="alert">Erro ao enviar os dados</div>');
@@ -64,6 +70,31 @@ $( document ).ready(function() {
 			//Habilitamos os campos
 			$inputs.prop("disabled", false);
 		});
-
 	});
 });
+
+
+
+$("#formArquivo").on("submit", function(event){
+        
+	event.preventDefault();
+
+	var file_data = $('#inputFile').prop('files')[0];   
+	var form_data = new FormData();                  
+	form_data.append('file', file_data);
+	alert(form_data);                             
+	$.ajax({
+		url: 'upload.php', 
+		dataType: 'text',  
+		cache: false,
+		contentType: false,
+		processData: false,
+		data: form_data,                         
+		type: 'post',
+		success: function(php_script_response){
+			alert(php_script_response);
+			$('#labelFile').html("Nenhum arquivo selecionado");
+			$("#inputFile").val("");
+		}
+		});
+	})

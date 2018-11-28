@@ -1,10 +1,11 @@
 $( document ).ready(function() {
 	// Variável para guardar o request
 	var request;
-
+	$('.loader').hide();//AQUI
 	// Bind da função de submit do nosso formulário
 	$("#formCadastroUsuario").submit(function(event){
-
+		$('.esconder').hide();//AQUI
+		$('.loader').show();//AQUI
 		//Não deixa que o POST default seja acionado
 		event.preventDefault();
 
@@ -52,6 +53,8 @@ $( document ).ready(function() {
 			else {
 					$('#divMensagem').append('<div class="alert alert-success" role="alert">' + response.posted + '</div>');
 			}
+			$('.esconder').show();
+			$('.loader').hide();//AQUI
 		});
 
 		// Callback para ser chamado em caso de falha

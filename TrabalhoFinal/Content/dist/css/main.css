@@ -68,8 +68,8 @@ box-shadow: -2px 2px 28px 8px rgba(138,136,138,1);
   border-top: 10px solid #212529;
   width: 120px;
   height: 120px;
-  margin-left: 35%;
-  margin-right: 35%;
+  margin-left: 40%;
+  margin-right: 40%;
   -webkit-animation: spin 1s linear infinite; /* Safari */
   animation: spin 1s linear infinite;
 }
@@ -83,4 +83,13 @@ box-shadow: -2px 2px 28px 8px rgba(138,136,138,1);
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+@media (min-width: 576px){
+  .modal-dialog {
+      max-width: 700px;
+      margin: 1.75rem auto;
+  }
+}
+.container{
+  padding-left: 0px; 
 }
