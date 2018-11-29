@@ -2,12 +2,12 @@
 -------------------------------------------------- */
 html {
   position: relative;
-  min-height: 100%;
 }
 body {
   /* Margin bottom by footer height */
   margin-bottom: 59px;
   background-color: #f7f2ea;
+  min-height: 100hw;
 }
 .footer {
   position: absolute;

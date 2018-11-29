@@ -17,7 +17,7 @@ $( document ).ready(function() {
 		}
 		
 		//Limpo as mensagens
-		$("#divMensagem").empty();
+		$(".divMensagem").empty();
 
 		var file_data = $('#inputFile').prop('files')[0];   
 		var form_data = new FormData();                  
@@ -69,6 +69,9 @@ $( document ).ready(function() {
 			}
 			else {
 					$('.divMensagem').append('<div class="alert alert-success" role="alert">' + response.posted + '</div>');
+					$('#InputNomeVol').val('');
+					$('#inputDescricao').val('');
+					$('#inputTipoVol').val('');
 			}
 			$('.esconder').show();
 			$('.loader').hide();//AQUI
