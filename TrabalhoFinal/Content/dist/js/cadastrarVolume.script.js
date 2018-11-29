@@ -18,6 +18,19 @@ $( document ).ready(function() {
 		
 		//Limpo as mensagens
 		$("#divMensagem").empty();
+
+		var file_data = $('#inputFile').prop('files')[0];   
+		var form_data = new FormData();                  
+		form_data.append('file', file_data);                     
+		$.ajax({
+			url: 'Aplicacao/UploadAplicacao.php', 
+			dataType: 'text',  
+			cache: false,
+			contentType: false,
+			processData: false,
+			data: form_data,                         
+			type: 'post'
+		});
 		
 		//variáveis locais
 		var $form = $(this);
@@ -29,7 +42,7 @@ $( document ).ready(function() {
 
 		//Vamos serializar o formulário
 		var serializedData = $form.serialize();
-		serializedData+="&operacao=AdicionarVolume"
+		serializedData+="&arquivo="+file_data.name+"&operacao=AdicionarUsuario";
 
 		//Vamos desabilitar os inputs durante a requisição para não deicar mandar várias seguidas
 		// OBS: N[os desabilitamos os campos depois de serializar os dados
@@ -40,23 +53,6 @@ $( document ).ready(function() {
 			url: "Controller/VolumeController.php",
 			type: "post",
 			data: serializedData
-		});
-		
-		var file_data = $('#inputFile').prop('files')[0];   
-		var form_data = new FormData();    
-		var data = [];
-		form_data.append('file', file_data);
-		data['arquivo'] = form_data;          
-		data['operacao'] = 'SalvarImagem';
-
-		request = $.ajax({
-			url: "Controller/VolumeController.php",
-			dataType: 'text',  
-			cache: false,
-			contentType: false,
-			processData: false,
-			type: 'post',
-			data: data                      
 		});
 		
 		// Callback para ser chamado quando ocorre o sucesso
@@ -72,7 +68,7 @@ $( document ).ready(function() {
 				}		
 			}
 			else {
-					$('#divMensagem').append('<div class="alert alert-success" role="alert">' + response.posted + '</div>');
+					$('.divMensagem').append('<div class="alert alert-success" role="alert">' + response.posted + '</div>');
 			}
 			$('.esconder').show();
 			$('.loader').hide();//AQUI

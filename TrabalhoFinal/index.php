@@ -44,11 +44,11 @@
         case 'Volumes':
             $script = "volumes";
             $titulo = "Volumes";
-            break;  
-        case 'Retiradas':
+            break;            
+            case 'Retiradas':
             $script = "retiradas";
             $titulo = "Retiradas";
-            break;           
+            break; 
         }
 ?>
 

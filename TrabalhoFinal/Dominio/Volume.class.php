@@ -7,5 +7,6 @@
         public $tipo;
         public $quantidade;
         public $dataCadastro;
+        public $arquivo;
     }
 ?>
