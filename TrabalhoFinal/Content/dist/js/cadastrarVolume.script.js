@@ -42,7 +42,7 @@ $( document ).ready(function() {
 
 		//Vamos serializar o formulário
 		var serializedData = $form.serialize();
-		serializedData+="&arquivo="+file_data.name+"&operacao=AdicionarUsuario";
+		serializedData+="&arquivo="+file_data.name+"&operacao=AdicionarVolume";
 
 		//Vamos desabilitar os inputs durante a requisição para não deicar mandar várias seguidas
 		// OBS: N[os desabilitamos os campos depois de serializar os dados

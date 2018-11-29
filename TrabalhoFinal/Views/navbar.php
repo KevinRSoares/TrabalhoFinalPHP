@@ -107,8 +107,7 @@
             <div class="loader"></div>
             <div class="esconder" >
               <div class="container cadastroUsu">                         
-                <div class="divMensagem">
-                </div>
+                <div class="divMensagem"></div>
                 <div class="row">          
                   <div class="form-group col-md-8 ">
                     <label for="InputNomeVol">Nome do Volume</label>
@@ -180,11 +179,10 @@
           </div>
            
         </div>  
-
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-primary">Retirar</button>
+        <div class="modal-footer" >
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-success">Retirar</button>
+          </div>
       </div>
     </div>
   </div>
