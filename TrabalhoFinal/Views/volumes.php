@@ -7,7 +7,7 @@
                 </div>
                 <div class="card-body">
                     <h5 class="card-title">Card title</h5>
-                    <p class="card-text ">Descrição Volume,Descrição Volume,Descrição Volume,Descrição Volume.</p>
+                    <p class="card-text " >Descrição Volume,Descrição Volume,Descrição Volume,Descrição Volume.</p>
                 </div>
                 <div class="card-footer">
                     <div class="text-center">

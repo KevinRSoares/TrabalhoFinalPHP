@@ -7,7 +7,7 @@ body {
   /* Margin bottom by footer height */
   margin-bottom: 59px;
   background-color: #f7f2ea;
-  min-height: 100hw;
+  min-height: 100%;
 }
 .footer {
   position: absolute;
