@@ -71,8 +71,10 @@
                         ]);
                         $_SESSION['codusu'] = $row["codusu"];
                         $_SESSION['nomusu'] = $row["nomusu"];
+                        $_SESSION['dtcad'] = $row["datcadusu"];
                         $_SESSION['tipusu'] = $row["tipusu"];
-                        
+                        $_SESSION['situacao'] = $row["stsusu"];
+                        $_SESSION['fila'] = [];                     
                         $form_data['success'] = true;
                         $form_data['tipUsu'] = $row["tipusu"];
                         $form_data['posted'] = "Login efetuado com sucesso!";

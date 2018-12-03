@@ -102,9 +102,33 @@ box-shadow: -2px 2px 28px 8px rgba(138,136,138,1);
   box-shadow: none;
 }
 .modal-body{
-  padding: 0px 1rem 1rem 1rem !important;
+  padding: 0px 0rem 0rem 1rem !important;
 
 }
 .retirada a{
   text-decoration: none;
+}
+
+
+.itcest{
+  padding: 2% 1% 1% 2%;
+  border-bottom: 1px solid #d6d6d6;
+}
+
+.cadvolqtd{
+  padding: 2% 0% 0% 0%;
+}
+
+.cadvolqtd .btnRet{
+  border-radius: 50% !important;
+  color : white !important;
+  font-size: 15px !important;
+}
+.qtd{
+  margin-top: 1.5%;
+}
+
+.cadastroUsu
+{
+  padding: 1rem 1rem 1rem 1rem !important;
 }

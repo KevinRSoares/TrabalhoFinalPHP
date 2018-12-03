@@ -45,7 +45,7 @@
             $script = "volumes";
             $titulo = "Volumes";
             break;            
-            case 'Retiradas':
+        case 'Retiradas':
             $script = "retiradas";
             $titulo = "Retiradas";
             break; 
