@@ -12,7 +12,7 @@
 					</div>                
 					<div class="card-footer">                    
 						<div class="text-center">                        
-							<a href="#" class="btn btn-primary" onclick="geraFila(24,'O Senhor dos Anéis: A Sociedade do Anel')">+</a>
+							<a href="#" class="btn btn-primary" onclick="geraFila(25,'O Senhor dos Anéis: A Sociedade do Anel')">+</a>
 						</div>                
 					</div>            
 				</div>                        
