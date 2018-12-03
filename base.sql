@@ -4,7 +4,7 @@ USE `trabalhofinal`;
 --
 -- Host: 127.0.0.1    Database: trabalhofinal
 -- ------------------------------------------------------
--- Server version	5.5.5-10.1.28-MariaDB
+-- Server version	5.5.5-10.1.31-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -84,7 +84,7 @@ CREATE TABLE `usuario` (
   `stsusu` char(1) DEFAULT NULL,
   PRIMARY KEY (`codusu`),
   UNIQUE KEY `nomusu_UNIQUE` (`nomusu`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -93,6 +93,7 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
+INSERT INTO `usuario` VALUES (23,'kevin','2018-11-28','E','202cb962ac59075b964b07152d234b70',NULL),(32,'kevin xz','2018-11-28','C','202cb962ac59075b964b07152d234b70',NULL);
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -112,7 +113,7 @@ CREATE TABLE `volume` (
   `datcadvol` date NOT NULL,
   `caminho` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`codvol`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1 COMMENT='		';
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=latin1 COMMENT='		';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -121,7 +122,7 @@ CREATE TABLE `volume` (
 
 LOCK TABLES `volume` WRITE;
 /*!40000 ALTER TABLE `volume` DISABLE KEYS */;
-INSERT INTO `volume` VALUES (1,'O Hobbit','Como a maioria dos hobbits, Bilbo Bolseiro leva uma vida tranquila atÃ© o dia em que recebe uma missÃ£o do mago Gandalf. Acompanhado por um grupo de anÃµes, ele parte numa jornada atÃ© a Montanha Soli','L',0,'2018-11-29','download.jpg'),(2,'O Hobbit','Como a maioria dos hobbits, Bilbo Bolseiro leva uma vida tranquila atÃ© o dia em que recebe uma missÃ£o do mago Gandalf. Acompanhado por um grupo de anÃµes, ele parte numa jornada atÃ© a Montanha Soli','L',0,'2018-11-29','download.jpg'),(3,'O Hobbit 2','Como a maioria dos hobbits, Bilbo Bolseiro leva uma vida tranquila atÃ© o dia em que recebe uma missÃ£o do mago Gandalf. Acompanhado por um grupo de anÃµes, ele parte numa jornada atÃ© a Montanha Soli','L',0,'2018-11-29','download.jpg'),(4,'O Hobbit 2','Como a maioria dos hobbits, Bilbo Bolseiro leva uma vida tranquila atÃ© o dia em que recebe uma missÃ£o do mago Gandalf. Acompanhado por um grupo de anÃµes, ele parte numa jornada atÃ© a Montanha Soli','L',0,'2018-11-29','download.jpg'),(5,'O Hobbit 2','Como a maioria dos hobbits, Bilbo Bolseiro leva uma vida tranquila atÃ© o dia em que recebe uma missÃ£o do mago Gandalf. Acompanhado por um grupo de anÃµes, ele parte numa jornada atÃ© a Montanha Soli','L',0,'2018-11-29','download.jpg'),(6,'O Hobbit 2','Como a maioria dos hobbits, Bilbo Bolseiro leva uma vida tranquila atÃ© o dia em que recebe uma missÃ£o do mago Gandalf. Acompanhado por um grupo de anÃµes, ele parte numa jornada atÃ© a Montanha Soli','L',0,'2018-11-29','download.jpg'),(7,'O Hobbit 2','Como a maioria dos hobbits, Bilbo Bolseiro leva uma vida tranquila atÃ© o dia em que recebe uma missÃ£o do mago Gandalf. Acompanhado por um grupo de anÃµes, ele parte numa jornada atÃ© a Montanha Soli','L',0,'2018-11-29','download.jpg'),(8,'O Hobbit 2','Como a maioria dos hobbits, Bilbo Bolseiro leva uma vida tranquila atÃ© o dia em que recebe uma missÃ£o do mago Gandalf. Acompanhado por um grupo de anÃµes, ele parte numa jornada atÃ© a Montanha Soli','P',0,'2018-11-29','download.jpg'),(9,'O Hobbit 2','Como a maioria dos hobbits, Bilbo Bolseiro leva uma vida tranquila atÃ© o dia em que recebe uma missÃ£o do mago Gandalf. Acompanhado por um grupo de anÃµes, ele parte numa jornada atÃ© a Montanha Soli','L',0,'2018-11-29','download.jpg'),(10,'O Hobbit 3','Como a maioria dos hobbits, Bilbo Bolseiro leva uma vida tranquila atÃ© o dia em que recebe uma missÃ£o do mago Gandalf. Acompanhado por um grupo de anÃµes, ele parte numa jornada atÃ© a Montanha Soli','L',0,'2018-11-29','image.jpg');
+INSERT INTO `volume` VALUES (24,'O Senhor dos AnÃ©is: A Sociedade do Anel','Um hobbit recebe de presente de seu tio um anel mÃ¡gico e maligno que precisa ser destruÃ­do antes que caia nas mÃ£os do mal, pois o futuro da civilizaÃ§Ã£o depende do destino desse anel. Para isso, o','L',50,'2018-12-02','SenhorDosAneisASociedadeDoAnel.jpg');
 /*!40000 ALTER TABLE `volume` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -146,6 +147,7 @@ CREATE TABLE `volume_posicao_fisica` (
 
 LOCK TABLES `volume_posicao_fisica` WRITE;
 /*!40000 ALTER TABLE `volume_posicao_fisica` DISABLE KEYS */;
+INSERT INTO `volume_posicao_fisica` VALUES (50,0,24);
 /*!40000 ALTER TABLE `volume_posicao_fisica` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -373,233 +375,46 @@ DELIMITER ;
 /*!50003 SET character_set_results = utf8 */ ;
 /*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ALLOW_INVALID_DATES,ERROR_FOR_DIVISION_BY_ZERO,TRADITIONAL,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `cadastra_retirada`(
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 IN covol Int,/*Código do Volume*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 IN cousu Int,/*Código do Usuário*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-IN daret Date, /*Data da Retirada*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 IN stret Char(1),/*Situação da Retirada*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-IN datderet Int /*Data Devolução Retirada*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+IN datderet date /*Data Devolução Retirada*/
 )
 BEGIN
-
-
-
 	Declare retCo Int(11);
-
-
-
-
-
-
-
+    Declare daret date default now();
 	Insert Into retirada(codvol,codusu,datret,stsret,datdevret)
-
-
-
-
-
-
-
 		Values(covol,cousu,daret,stret,datderet);
-
-
-
 	Select Max(RetCod) as 'RetCod' from retirada Where cousu = codusu into retCo;
-
-
-
-
-
-
-
 	Select retCo;
-
-
-
-
-
-
-
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `cadastra_retirada_volume` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `cadastra_retirada_volume`(
+IN coret Int,/*Código do Volume*/
+IN cousu Int,/*Código do Usuário*/
+IN covol Int,/*Situação da Retirada*/
+IN qtVolRet Int /*Data Devolução Retirada*/
+)
+BEGIN
+	Insert Into retirada_volume(retirada_codret,retirada_codusu,volume_codvol,qtdVolRet)
+		Values(coret,cousu,covol,qtVolRet);
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -927,219 +742,23 @@ DELIMITER ;
 /*!50003 SET character_set_results = utf8 */ ;
 /*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ALLOW_INVALID_DATES,ERROR_FOR_DIVISION_BY_ZERO,TRADITIONAL,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 SET sql_mode              = 'NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `cadastra_volume`(
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 IN nmvol Varchar(50),/*Nome Volume*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 IN devol Varchar(200),/*Descrição do Volume*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 IN tivol char(1),/*Tipo do Volume*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 IN qtvol Int,/*Quantidade do Volume*/
-
-
-
-
-
 IN camImg VarChar(200)
-
-
-
 )
 BEGIN
-
-
-
-
-
-
-
 	Declare datcavol date default now();/*Data de Cadastro de Usuario*/ 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    Declare covol int(11);
 	Insert Into volume(nomvol,desvol,tipvol,qtdvol,datcadvol,caminho)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 		Values(nmvol,devol,tivol,qtvol,datcavol,camImg);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    Select codvol from volume order by codvol desc limit 1 into covol;
+    Insert into volume_posicao_fisica(codvol,posqtdvol,posresqtdvol)
+		Values(covol,qtvol,0);	
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -1156,4 +775,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-11-29  3:46:33
+-- Dump completed on 2018-12-03  0:08:02
