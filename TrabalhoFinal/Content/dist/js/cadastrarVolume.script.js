@@ -73,6 +73,7 @@ $( document ).ready(function() {
 					$('#inputDescricao').val('');
 					$('#inputTipoVol').val('');
 					$('#q0').val('1');
+					buscaVolumes();
 			}
 			$('.esconder').show();
 			$('.loader').hide();//AQUI
@@ -91,6 +92,10 @@ $( document ).ready(function() {
 });
 
 $("#Volumes").ready(function(event){
+	buscaVolumes();
+});
+
+function buscaVolumes(){
 	var request;
 
 	//Cancelando qualquer request pendente
@@ -131,17 +136,16 @@ $("#Volumes").ready(function(event){
 				$('#divMensagem').append('<div class="alert alert-danger" role="alert">' + response.erros + '</div>');
 		}
 		else {
-				$("#volumes").empty();
-				k = 0;
-				for (i in response.volumes) {
-					var html = '<div class="col-scol-lg-2 col-md-3 col-sm-12">            <div class="card" style="width: 100%;">                <div class="card-header">                   <img class="card-img-top" src="Content/dist/img/imgVolumes/'+response.volumes[i].arquivo+'" alt="Card image cap" height="300px">                </div>                <div class="card-body">                    <h5 class="card-title">'+response.volumes[i].nome+'</h5>                    <p class="card-text " >'+response.volumes[i].descricao+'</p>                </div>                <div class="card-footer">                    <div class="text-center">                        <a href="#" class="btn btn-primary">+</a>                    </div>                </div>            </div>                        </div>    ';
-					if(k == 3){
-						html = '<div class="row">'+html+'</div>';
-						k = 0;
-					}
-					$('#volumes').append(html);	
-					console.log(html);
-				}	 	
+			$("#Volumes").empty();
+			k = 0;
+			var html = '';
+			for (i in response.volumes) {
+				response.volumes[i].nome = "'"+response.volumes[i].nome+"'";
+				html += ' <div class="col-scol-lg-2 col-md-3 col-sm-12">            <div class="card" style="width: 100%;">                <div class="card-header">                   <img class="card-img-top" src="Content/dist/img/imgVolumes/'+response.volumes[i].arquivo+'" alt="Card image cap" height="300px">                </div>                <div class="card-body">                    <h5 class="card-title">'+response.volumes[i].nome+'</h5>                    <p class="card-text " >'+response.volumes[i].descricao+'</p>                </div>                <div class="card-footer">                    <div class="text-center">                        <a href="#" class="btn btn-primary" onclick="geraFila('+response.volumes[i].codigo+','+response.volumes[i].nome+')">+</a>                    </div>                </div>            </div>                        </div>    ';
+			}	 	
+			html = '<div class="row">'+html+'</div>';
+			$('#Volumes').append(html);	
+			console.log(html);
 		}
 		$('.esconder').show();
 		$('.loader').hide();//AQUI
@@ -157,4 +161,4 @@ $("#Volumes").ready(function(event){
 		//Habilitamos os campos
 		$inputs.prop("disabled", false);
 	});		
-});
+}
