@@ -1,44 +1,46 @@
-<header>
-  <!--Dados do usuario-->
+  <header>
   <p class="d-none"><?php echo $_SESSION['codusu'] ?></p>
   <p class="d-none"><?php echo $_SESSION['nomusu'] ?></p>
   <p class="d-none"><?php echo $_SESSION['dtcad'] ?></p>
   <p class="d-none"><?php echo $_SESSION['tipusu'] ?></p>
-  <p class="d-none"><?php echo $_SESSION['situacao'] ?></p>
-  <!--Dados do usuario-->
-  <!-- Fixed navbar -->
-  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+  <p class="d-none"><?php echo $_SESSION['situacao'] ?></p>!-- Fixed navbar -->
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
 
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarCollapse">
-      <ul class="navbar-nav mr-auto">
-        <div class="dropdown">
-          <a class="btn btn-dark dropdown
-          dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Cadastros</a>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item" data-toggle="modal" data-target="#CadUsuario">Usuário</a>
-            <a class="dropdown-item" data-toggle="modal" data-target="#CadVolume">Volume</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+          <div class="dropdown">
+            <a class="btn btn-dark dropdown
+              dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Cadastros</a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <a class="dropdown-item" data-toggle="modal" data-target="#CadUsuario">Usuário</a>
+              <a class="dropdown-item" data-toggle="modal" data-target="#CadVolume">Volume</a>
+            </div>
           </div>
-        </div>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Retiradas <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Usuário <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-         <a class="nav-link" href="Views/sair.php">Sair</a>
-       </li>        
-     </ul>
-      <a id='cesta' class="cest btn btn-dark" data-toggle="modal" data-target="#ModaRetiradas">
-        <img class='cest' src="Content/dist/img/icon/baseline_shopping.png" alt="Cesta de Compras" width="30px">
-      </a>
-  </div>
-</nav>
-</header>
-<!--Modal Usuario-->
+          <li class="nav-item">
+            <a class="nav-link" href="index.php?page=Volumes">Volumes <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.php?page=Retiradas">Retiradas <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.php?page=Usuarios">Usuário <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+  					<a class="nav-link" href="Views/sair.php">Sair</a>
+  				</li>        
+        </ul>
+        <form class="form-inline mt-3 mt-md-0">
+          <a class="cest btn btn-dark" data-toggle="modal" data-target="#ModaRetiradas">
+          <img class='cest' src="Content/dist/img/icon/baseline_shopping.png" alt="Cesta de Compras" width="30px">
+          </a>
+        </form>
+      </div>
+    </nav>
+  </header>
+   <!--Modal Usuario-->
 <div class="modal fade" id="CadUsuario" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -85,7 +87,7 @@
     </div>
   </div>
 </div>
-<!--Modal Volume-->
+    <!--Modal Volume-->
 <div class="modal fade" id="CadVolume" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -149,7 +151,7 @@
 </div>
 
 
-<!--Modal Cesta-->
+  <!--Modal Cesta-->
 <div class="modal fade" id="ModaRetiradas" tabindex="-1" role="dialog ">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -188,28 +190,6 @@
     }
   }
 </script>
-<script type="text/javascript">
+  <script type="text/javascript">
 
-</script>
-
-
-
-  <!--
-  <div class="card cardRet" style="width: 28.5rem;">
-            <ul class="list-group list-group-flush">
-              
-              <div class=" container">
-                <li class="list-group-item">
-                  <div class="form-control"></div>
-                  Livro Um xcvdgsdgdfgbdgdcadcvsadvsvdssvasevvwvdvswdvwsvwsvwsvwavv
-                  <div class="input-group-append">
-                    <div class="input-group-text" id="basic-addon2">
-                      
-                    </div>
-                  </div>
-
-                </li>  
-              </div>
-              
-            </ul>
-          </div>-->
+    </script>
